@@ -4,14 +4,11 @@ qtd = int(input())
 
 for i in range(qtd):
 
-
     if i + 1 != qtd:
-        print(f"Esta é a música {i+1} de {qtd}.")
+        print(f"Esta é a música {i + 1} de {qtd}.")
     else:
         print("Última música!")
     palavra = input()
-
-
 
     parte = ""
 
@@ -35,7 +32,7 @@ for i in range(qtd):
         acertou, repetiu = False, False
 
         for i in range(len(palavra)):
-            
+
             if chute == palavra[i]:
                 parte += chute
                 print("Uhuuuuu! Consegui adivinhar uma letra!")
@@ -46,7 +43,7 @@ for i in range(qtd):
                 repetiu = True
             elif " " == palavra[i]:
                 parte += " "
-            else: 
+            else:
                 parte += "_"
                 print("Eita! Parece que a letra {chute} não está na música secreta!")
 
@@ -66,4 +63,4 @@ for i in range(qtd):
         tentativas -= 1
 
 
-    
+
