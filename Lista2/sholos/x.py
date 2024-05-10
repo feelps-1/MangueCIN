@@ -4,6 +4,7 @@ desordemTaylor = 0
 vitoriasKanye = 0
 vitoriasTaylor = 0
 desordem = False
+mimimi = ''
 
 c = 1
 while c <= numRodadas:
@@ -26,8 +27,10 @@ while c <= numRodadas:
             while mimimi != 'ORDEM':
                 mimimi = input()
                 if mimimi != 'ORDEM': desordemKanye += 1
+            mimimi = ''
 
     if desordemKanye < 5:
+        mimimi = ''
         musicaTaylor = input()
         for f in range(3):
             avaliacaoTaylor = input()
@@ -42,6 +45,7 @@ while c <= numRodadas:
                 while mimimi != 'ORDEM':
                     mimimi = input()
                     if mimimi != 'ORDEM': desordemTaylor += 1
+            mimimi = ''
 
     if desordemTaylor >= 5:
         c = numRodadas
