@@ -26,7 +26,7 @@ for i in range(qtd):
     if len(palavra.split()) > 1:
         tentativas = (len(palavra) - len(palavra.split())) * 2
     else:
-        tentativas = len(palavra) * 21
+        tentativas = len(palavra) * 2
 
     while parte != palavra and tentativas > 0:
         chute = input()
