@@ -23,7 +23,7 @@ for i in range(qtd):
 
     ultima = parte
 
-    tentativas = (len(palavra) - palavra.count(" ")) * 2
+    tentativas = (len(palavra) - palavra.count(" ")) * 2 
 
     while parte != palavra and tentativas > 0:
         chute = input()
@@ -37,17 +37,18 @@ for i in range(qtd):
                 parte += ultima[i]
             elif " " == palavra[i]:
                 parte += " "
+            
 
         if parte != ultima:
             acertou = True
         else:
             if chute not in palavra:
                 errou = True
-            else:
+            else: 
                 repetiu = True
-
+        
         ultima = parte
-
+        
         if acertou:
             print("Uhuuuuu! Consegui adivinhar uma letra!")
             acertou = False
@@ -57,6 +58,7 @@ for i in range(qtd):
         elif errou:
             print(f"Eita! Parece que a letra {chute} não está na música secreta!")
             errou = False
+        
 
         print(f"Resposta atual: {parte}")
 
@@ -68,9 +70,10 @@ for i in range(qtd):
         if parte == palavra:
             print("Isso! Consegui acertar uma música!")
             pontos += 1
+        
 
 print(f"Consegui acertar {pontos} músicas de {qtd}!")
-taxaAcertos = (pontos * 100) / qtd
+taxaAcertos = (pontos*100) / qtd
 
 if taxaAcertos <= 50:
     print("Poxa, eu conseguiria ter ido bem melhor, vou escutar todos os álbuns em repeat!")
