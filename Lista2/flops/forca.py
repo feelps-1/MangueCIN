@@ -23,10 +23,7 @@ for i in range(qtd):
 
     ultima = parte
 
-    if len(palavra.split()) > 1:
-        tentativas = (len(palavra) - len(palavra.split())) * 2
-    else:
-        tentativas = len(palavra) * 2
+    tentativas = (len(palavra) - palavra.count(" ")) * 2 
 
     while parte != palavra and tentativas > 0:
         chute = input()
@@ -50,33 +47,30 @@ for i in range(qtd):
             else: 
                 repetiu = True
         
-
         ultima = parte
         
         if acertou:
             print("Uhuuuuu! Consegui adivinhar uma letra!")
             acertou = False
-            repetiu = False
         elif repetiu:
             print("Já tinha colocado essa letra antes, preciso de mais atenção.")
             repetiu = False
-            acertou = False
         elif errou:
             print(f"Eita! Parece que a letra {chute} não está na música secreta!")
-            acertou = False
-            repetiu = False 
+            errou = False
         
 
         print(f"Resposta atual: {parte}")
 
         tentativas -= 1
 
-        if tentativas == 0:
+        if tentativas == 0 and parte != palavra:
             print(f"Vish, essa tava difícil, a música era {palavra}. Espero acertar a próxima!")
 
         if parte == palavra:
             print("Isso! Consegui acertar uma música!")
             pontos += 1
+        
 
 print(f"Consegui acertar {pontos} músicas de {qtd}!")
 taxaAcertos = (pontos*100) / qtd
