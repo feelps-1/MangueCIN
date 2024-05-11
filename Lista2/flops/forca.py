@@ -1,6 +1,9 @@
 print("Bem vindo ao jogo da forca do ye!")
 
 qtd = int(input())
+pontos = 0
+
+acertou, errou, repetiu = False, False, False
 
 for i in range(qtd):
 
@@ -18,49 +21,63 @@ for i in range(qtd):
         else:
             parte += "_"
 
-    print(parte)
     ultima = parte
-    while parte != palavra or tentativas > 0:
+
+    tentativas = (len(palavra) - palavra.count(" ")) * 2
+
+    while parte != palavra and tentativas > 0:
         chute = input()
         parte = ""
-
-        if len(palavra.split()) > 1:
-            tentativas = (len(palavra) - len(palavra.split())) * 2
-        else:
-            tentativas = len(palavra) * 2
-
-        acertou, repetiu = False, False
 
         for i in range(len(palavra)):
 
             if chute == palavra[i]:
                 parte += chute
-                print("Uhuuuuu! Consegui adivinhar uma letra!")
-                acertou = True
             elif chute != ultima[i]:
                 parte += ultima[i]
-                print("Já tinha colocado essa letra antes, preciso de mais atenção.")
-                repetiu = True
             elif " " == palavra[i]:
                 parte += " "
+
+        if parte != ultima:
+            acertou = True
+        else:
+            if chute not in palavra:
+                errou = True
             else:
-                parte += "_"
-                print("Eita! Parece que a letra {chute} não está na música secreta!")
+                repetiu = True
 
         ultima = parte
 
-        if repetiu:
-            print("Já tinha colocado essa letra antes, preciso de mais atenção.")
-            repetiu = False
-        elif acertou:
+        if acertou:
             print("Uhuuuuu! Consegui adivinhar uma letra!")
             acertou = False
-        else:
+        elif repetiu:
+            print("Já tinha colocado essa letra antes, preciso de mais atenção.")
+            repetiu = False
+        elif errou:
             print(f"Eita! Parece que a letra {chute} não está na música secreta!")
+            errou = False
 
         print(f"Resposta atual: {parte}")
 
         tentativas -= 1
 
+        if tentativas == 0 and parte != palavra:
+            print(f"Vish, essa tava difícil, a música era {palavra}. Espero acertar a próxima!")
 
+        if parte == palavra:
+            print("Isso! Consegui acertar uma música!")
+            pontos += 1
+
+print(f"Consegui acertar {pontos} músicas de {qtd}!")
+taxaAcertos = (pontos * 100) / qtd
+
+if taxaAcertos <= 50:
+    print("Poxa, eu conseguiria ter ido bem melhor, vou escutar todos os álbuns em repeat!")
+elif taxaAcertos <= 75:
+    print("Foi um bom resultado, vou começar a escutar mais músicas do Kanye West.")
+elif taxaAcertos < 100:
+    print("Estou quase chegando na perfeição! Só não consegui porque não gosto de todos os álbuns.")
+else:
+    print("Eu sou o próprio Kanye West.")
 
