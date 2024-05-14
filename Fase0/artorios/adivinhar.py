@@ -35,7 +35,7 @@ try:
             momento = abs(possibilidades[i] - chutes[j])
             if momento in erro:
                 totalErro.append(momento)
-                if len(totalErro) == len(erro) and possibilidades[i] not in resultado:
+                if sorted(totalErro) == erro and possibilidades[i] not in resultado:
                     resultado.append(possibilidades[i])
                     break
             else:
@@ -44,8 +44,6 @@ try:
 
 except BreakIt:
     pass
-
-
 
 
 resultado = sorted(resultado)
