@@ -35,13 +35,35 @@ while not acabou:
 
         matriz[int(coord2[0])][int(coord2[1])] = obj1
         matriz[int(coord1[0])][int(coord1[1])] = obj2
+
     elif operacao == "Transposição":
-        #pipo
+
+        matrizTransposta = [[linhaT[i] for linhaT in matriz] for i in range(len(matriz[0]))]
+
+        matriz = matrizTransposta
+
     elif operacao == "Remover":
-        #pipo
+        menorValor = 1000000
+
+        for y in range(len(matriz)):
+            for x in range(len(matriz[y])):
+                if 0 < int(matriz[y][x]) < menorValor:
+                    menorValor = int(matriz[y][x])
+                    posMenor = [int(y), int(x)]
+
+        matriz[posMenor[0]][posMenor[1]] = 0
+
     elif operacao == "Fim":
         acabou = True
 
-print(matriz)
+print("Atual Arranjo:")
+
+for i in matriz:
+    linhaPrint = [' '.join(str(itens) for itens in x) for x in matriz]
+    for j in linhaPrint:
+        matrizPrint = '\n'.join(linhaPrint)
+
+print(matrizPrint)
+
 
 
