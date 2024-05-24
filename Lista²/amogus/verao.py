@@ -45,11 +45,11 @@ else:
     print(", ".join(comprasPossiveis))
 
 itensStefan = input().split(', ')
-quantidadesStefan = list(map(int, input().split(', ')))
+quantidadesStefan = input().split(', ')
 
-barraFerro = quantidadesStefan[itensStefan.index('Barra de ferro')]
-quartzoRefinado = quantidadesStefan[itensStefan.index('Quartzo refinado')]
-asaMorcego = quantidadesStefan[itensStefan.index('Asa de morcego')] // 5
+barraFerro = int(quantidadesStefan[itensStefan.index('Barra de ferro')])
+quartzoRefinado = int(quantidadesStefan[itensStefan.index('Quartzo refinado')])
+asaMorcego = int(quantidadesStefan[itensStefan.index('Asa de morcego')]) // 5
 
 numPararaios = min(barraFerro, quartzoRefinado, asaMorcego)
 
