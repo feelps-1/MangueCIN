@@ -35,13 +35,11 @@ else:
     for c in range(n):
         for d in range(n):
             if matriz[c][d] == '1':
-                maxMolhados = 4
                 molhaveis.append([c - 1, d])
                 molhaveis.append([c, d - 1])
                 molhaveis.append([c, d + 1])
                 molhaveis.append([c + 1, d])
             elif matriz[c][d] == '2':
-                maxMolhados = 8
                 molhaveis.append([c - 1, d - 1])
                 molhaveis.append([c - 1, d])
                 molhaveis.append([c - 1, d + 1])
@@ -51,6 +49,7 @@ else:
                 molhaveis.append([c + 1, d])
                 molhaveis.append([c + 1, d + 1])
 
+    maxMolhados = len(molhaveis)
 
     while dia <= 28:
         dinheiros += dinheiro
@@ -121,5 +120,6 @@ else:
         dia += 1
 
     if molhados < maxMolhados:
+        dinheiros += dinheiro
         print('Chegamos ao fim de mais um Verão!! Vamos ver quanto ouro conseguimos')
         print(f'{dinheiros} Ouros')

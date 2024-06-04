@@ -71,10 +71,10 @@ else:
 
     nomes = []
     maisProximo = []
-    for x in distancias:
-        if x == min(distancias):
-            nomes.append(alibis[0][distancias.index(x)])
-            maisProximo.append(x)
+    for c in range(len(distancias)):
+        if distancias[c] == min(distancias):
+            nomes.append(alibis[0][c])
+            maisProximo.append(distancias[c])
 
     culpado = [nomes, maisProximo]
     if len(culpado[0]) == 1:
