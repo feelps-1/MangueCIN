@@ -95,7 +95,3 @@ else:
     print(f"Parece que {nome} não escutou nenhuma música. Vamos recomendar algumas músicas de gêneros diferentes:\n")
     for l in range(len(padrao)):
         print(f"{l+1}. {padrao[l]}")
-
-
-
-        
