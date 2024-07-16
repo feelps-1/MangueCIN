@@ -83,7 +83,7 @@ while coleta:
             
             if albums[a]['pontos'] >= limite:
                 coleta = False
-                print(f"Atenção! O limite de pontuação foi atingido pelo álbum {a}")
+                print(f"Atenção! O limite de pontuação foi atingido pelo álbum {a}!")
 
         if not achou:
             print('Poxa, essa música não está na discografia da base do nosso estúdio!')
